@@ -1,0 +1,11 @@
+#include<bits/stdc++.h>
+using namespace std;
+void main()
+{
+char a[3],b[3];
+cin.getline(a);
+
+
+
+
+}
