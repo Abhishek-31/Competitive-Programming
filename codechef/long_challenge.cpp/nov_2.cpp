@@ -1,52 +1,26 @@
-   /*Made by Abhishek Agarwal */
- #include<bits/stdc++.h>
- using namespace std;
- #define fastio ios_base::sync_with_stdio(false);   cin.tie(NULL);   cout.tie(NULL);
- int main()
- {
- fastio;
- int t,i,j,k,n;
- cin>>t;
- while(t--)
- {
-   int flag=0;
-   cin>>n;
-   int a[n],b[n],c[n];
-   for(i=0;i<n;i++)
-   {cin>>a[i];
-   b[i]=a[i];
- }
- sort(b,b+n);
- k=0;
- c[k]=b[0];
- for(i=1;i<n;i++)
- {
-   if(b[i]!=c[k])
-     {
-       k++;
-       c[k]=b[i];
-     }
-     else
-     continue;
- }
- // for(j=0;j<=k;j++)
- // cout<<c[j]<<" ";
- // cout<<endl;
- for(j=0;j<=k;j++)
-  {
-    for(i=j+1;i<=k;i++)
-    if(a[c[i]-1]==a[c[j]-1])
-    {
-     flag=1;
-     // cout<<"index is "<<c[i]<<"and"<<c[j]<<" and value is "<<a[c[i]]<<"and"<<a[c[j]]<<"\n ";
-     cout<<"Truly Happy\n";
-     break;
- }
- if(flag==1)
- break;
- }
- if(flag==0)
- cout<<"Poor Chef\n";
+/*Made by Abhishek Agarwal */  
+#include<bits/stdc++.h> 
+using namespace std;  
+#define fastio ios_base::sync_with_stdio(false);   cin.tie(NULL);   cout.tie(NULL); 
+
+int main() 
+{ 
+fastio; 
+ long long int t,k,i,n,z=-1,j; 
+cin>>t; 
+long long int a[t],b[26];
+for(i=0;i<t;i++)
+cin>>a[i];
+b[1] = 1;
+for (k = 2; k <= 25; k++)
+{
+    b[k] = b[k - 1] * 2 + z;
+    z *= -1;
 }
- return 0;
- }
+
+for(i=0;i<t;i++)
+{
+       cout << b[a[i]] <<" "<<(long long int)pow(2,a[i])<<" "; }
+return 0;
+}
+
